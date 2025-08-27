@@ -1,0 +1,83 @@
+@font-face {
+  font-family: "SUIT v1";
+  font-weight: 200;
+  font-display: swap;
+  src:
+    url("./fonts/SUIT-Thin.woff2") format("woff2"),
+    url("./fonts/SUIT-Thin.woff") format("woff"),
+    url("./fonts/SUIT-Thin.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "SUIT v1";
+  font-weight: 300;
+  font-display: swap;
+  src:
+    url("./fonts/SUIT-ExtraLight.woff2") format("woff2"),
+    url("./fonts/SUIT-ExtraLight.woff") format("woff"),
+    url("./fonts/SUIT-ExtraLight.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "SUIT v1";
+  font-weight: 400;
+  font-display: swap;
+  src:
+    url("./fonts/SUIT-Regular.woff2") format("woff2"),
+    url("./fonts/SUIT-Regular.woff") format("woff"),
+    url("./fonts/SUIT-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "SUIT v1";
+  font-weight: 500;
+  font-display: swap;
+  src:
+    url("./fonts/SUIT-Medium.woff2") format("woff2"),
+    url("./fonts/SUIT-Medium.woff") format("woff"),
+    url("./fonts/SUIT-Medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "SUIT v1";
+  font-weight: 600;
+  font-display: swap;
+  src:
+    url("./fonts/SUIT-SemiBold.woff2") format("woff2"),
+    url("./fonts/SUIT-SemiBold.woff") format("woff"),
+    url("./fonts/SUIT-SemiBold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "SUIT v1";
+  font-weight: 700;
+  font-display: swap;
+  src:
+    url("./fonts/SUIT-Bold.woff2") format("woff2"),
+    url("./fonts/SUIT-Bold.woff") format("woff"),
+    url("./fonts/SUIT-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "SUIT v1";
+  font-weight: 800;
+  font-display: swap;
+  src:
+    url("./fonts/SUIT-ExtraBold.woff2") format("woff2"),
+    url("./fonts/SUIT-ExtraBold.woff") format("woff"),
+    url("./fonts/SUIT-ExtraBold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "SUIT v1";
+  font-weight: 900;
+  font-display: swap;
+  src:
+    url("./fonts/SUIT-Heavy.woff2") format("woff2"),
+    url("./fonts/SUIT-Heavy.woff") format("woff"),
+    url("./fonts/SUIT-Heavy.ttf") format("truetype");
+}
+
+body {
+  font-family: "SUIT v1" !important;
+}

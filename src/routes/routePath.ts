@@ -23,6 +23,8 @@ const RoutePath = {
   GithubLoginRedirect: `${BASE_URL}/oauth2/authorization/github`,
   AuthServerRedirect: "/social-login/redirect",
 
+  OfflineEventManage: "/offline-event-manage",
+  EditEvent: "/offline-event-manage/edit",
   Error: "/error",
 } as const;
 

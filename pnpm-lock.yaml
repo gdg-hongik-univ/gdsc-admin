@@ -53,6 +53,9 @@ dependencies:
   wowds-icons:
     specifier: ^0.1.6
     version: 0.1.6
+  wowds-tokens:
+    specifier: ^0.1.6
+    version: 0.1.6
   wowds-ui:
     specifier: ^0.2.0
     version: 0.2.0(next@14.2.23)(react-dom@18.3.1)(react@18.3.1)
@@ -8099,6 +8102,10 @@ packages:
 
   /wowds-icons@0.1.6:
     resolution: {integrity: sha512-/7xLOIvHNTuOfMhSM+JfPF6MaDwS5jC6JN7JXPvo3T52l63Wy63cNskwWrZ1WaD5fHvuG9Il4p9AOB8+zp/ppg==}
+    dev: false
+
+  /wowds-tokens@0.1.6:
+    resolution: {integrity: sha512-AitpIpeuVIxz6mXevyLx2JI34ydLwgOMPzO7byb65XPs/Mhi8KJ3DQZBEBjsQ/arWjXPugVJRRIO4oMZ2lkzdg==}
     dev: false
 
   /wowds-ui@0.2.0(next@14.2.23)(react-dom@18.3.1)(react@18.3.1):

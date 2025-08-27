@@ -29,6 +29,7 @@
     "react-toastify": "^10.0.4",
     "typescript": "^5.7.3",
     "wowds-icons": "^0.1.6",
+    "wowds-tokens": "^0.1.6",
     "wowds-ui": "^0.2.0",
     "zustand": "^4.4.7"
   },
