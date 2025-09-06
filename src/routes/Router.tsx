@@ -6,6 +6,8 @@ import AuthErrorPage from "@/pages/AuthErrorPage";
 import AuthServerRedirectPage from "@/pages/AuthServerRedirectPage";
 import CouponPage from "@/pages/CouponPage";
 import CouponProvisionPage from "@/pages/CouponProvisionPage";
+import { EditEventPage } from "@/pages/EditEventPage";
+import { EventsHomePage } from "@/pages/EventsHomePage";
 import IssuedCouponPage from "@/pages/IssuedCouponPage";
 import NotFoundErrorPage from "@/pages/NotFoundErrorPage";
 import PaymentStatusHistoryPerSemesterPage from "@/pages/PaymentStatusHistoryPerSemesterPage";
@@ -37,6 +39,15 @@ const routes: RouteObject[] = [
       {
         path: RoutePath.PaymentStatusHistoryPerSemester,
         element: <PaymentStatusHistoryPerSemesterPage />,
+      },
+      {
+        path: RoutePath.EventsHomePage,
+        element: <EventsHomePage />,
+      },
+
+      {
+        path: `${RoutePath.EditEvent}/:eventId`,
+        element: <EditEventPage />,
       },
     ],
   },

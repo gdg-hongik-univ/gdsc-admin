@@ -1,0 +1,6 @@
+export type EventStatus =
+  | "BEFORE_APPLICATION"
+  | "APPLICATION_OPEN"
+  | "APPLICATION_CLOSED"
+  | "ONGOING"
+  | "EVENT_ENDED";

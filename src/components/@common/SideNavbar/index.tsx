@@ -7,6 +7,7 @@ import {
   recruitmentLinkButtonInfoList,
   historyLinkButtonInfoList,
 } from "@/constants/common";
+import RoutePath from "@/routes/routePath";
 
 export default function SideNavbar() {
   return (
@@ -26,6 +27,7 @@ export default function SideNavbar() {
             "https://dashboard.tosspayments.com/payment-widget-service/tm/931024/ui-setting-list"
           }
         />
+        <AccordionLinkListButton label="오프라인 행사 관리" path={RoutePath.OfflineEventManage} />
       </StyledLinkWrapper>
     </StyledSideNavbarWrapper>
   );

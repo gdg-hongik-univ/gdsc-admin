@@ -15,14 +15,17 @@ type LinkButtonLabelType =
   | "회비 관리"
   | "리크루팅 관리"
   | "히스토리"
-  | "결제위젯 어드민";
+  | "결제위젯 어드민"
+  | "오프라인 행사 관리";
 
 type AccordionLinkListButtonPropsType<T extends LinkButtonLabelType> = {
   label: T;
   linkButtonInfoList?: T extends "회원 관리" | "회비 관리" | "히스토리" | "리크루팅 관리"
     ? LinkButtonPropsType[]
     : undefined;
-  path?: T extends "히스토리" | "리크루팅 관리" | "결제위젯 어드민" ? string : undefined;
+  path?: T extends "히스토리" | "리크루팅 관리" | "결제위젯 어드민" | "오프라인 행사 관리"
+    ? string
+    : undefined;
 };
 
 export default function AccordionLinkListButton<T extends LinkButtonLabelType>({
