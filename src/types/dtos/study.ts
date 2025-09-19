@@ -1,7 +1,7 @@
-import type { StudySemesterType, StudyType } from "types/entities/study";
-import type { TimeType } from "types/entities/time";
 import type { DayOfWeekType } from "../entities/dayofWeek";
 import type { PeriodType } from "../entities/period";
+import type { StudySemesterType, StudyType } from "types/entities/study";
+import type { TimeType } from "types/entities/time";
 
 export interface StudyListApiResponseDto {
   study: StudyApiResponseV2Dto;

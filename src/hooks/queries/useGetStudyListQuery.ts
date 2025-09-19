@@ -1,6 +1,6 @@
+import { useQuery } from "@tanstack/react-query";
 import { studyApi } from "@/apis/studyListApi";
 import { QueryKey } from "@/constants/queryKey";
-import { useQuery } from "@tanstack/react-query";
 
 export default function useGetStudyListQuery() {
   const { data = [] } = useQuery({

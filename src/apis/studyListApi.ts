@@ -1,5 +1,5 @@
-import { StudyListApiResponseDto } from "@/types/dtos/study";
 import { apiClient } from ".";
+import { StudyListApiResponseDto } from "@/types/dtos/study";
 
 export const studyApi = {
   getStudyList: async (): Promise<StudyListApiResponseDto[]> => {

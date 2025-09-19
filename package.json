@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --port 3000",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives",
     "preview": "vite preview",
@@ -18,6 +18,7 @@
     "@mui/material": "^5.15.6",
     "@mui/x-data-grid": "^7.7.1",
     "@mui/x-date-pickers": "^7.8.0",
+    "@mui/x-date-pickers-pro": "^8.11.2",
     "@tanstack/react-query": "^5.17.1",
     "@tanstack/react-query-devtools": "^5.17.1",
     "axios": "^1.6.7",
@@ -29,6 +30,7 @@
     "react-toastify": "^10.0.4",
     "typescript": "^5.7.3",
     "wowds-icons": "^0.1.6",
+    "wowds-tokens": "^0.1.6",
     "wowds-ui": "^0.2.0",
     "zustand": "^4.4.7"
   },
