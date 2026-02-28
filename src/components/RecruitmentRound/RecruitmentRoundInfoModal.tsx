@@ -1,4 +1,13 @@
-import { ChangeEvent, useEffect, useState } from "react";
+import { QueryKey } from "@/constants/queryKey";
+import useCreateRecruitmentRoundMutation from "@/hooks/mutations/useCreateRecruitmentRoundMutation";
+import useEditRecruitmentRoundMutation, {
+  EditRecruitmentRoundMutationArgumentType,
+} from "@/hooks/mutations/useEditRecruitmentRoundMutation";
+import {
+  FilteredRecruitmentRoundInfoType,
+  RecruitmentRoundModalInfoType,
+} from "@/types/entities/recruitment";
+import { toKSTISOString } from "@/utils/validation/formatDate";
 import {
   Box,
   Button,
@@ -15,17 +24,8 @@ import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider/LocalizationProvider";
 import { useQueryClient } from "@tanstack/react-query";
 import dayjs, { Dayjs } from "dayjs";
+import { ChangeEvent, useEffect, useState } from "react";
 import { toast } from "react-toastify";
-import { QueryKey } from "@/constants/queryKey";
-import useCreateRecruitmentRoundMutation from "@/hooks/mutations/useCreateRecruitmentRoundMutation";
-import useEditRecruitmentRoundMutation, {
-  EditRecruitmentRoundMutationArgumentType,
-} from "@/hooks/mutations/useEditRecruitmentRoundMutation";
-import {
-  FilteredRecruitmentRoundInfoType,
-  RecruitmentRoundModalInfoType,
-} from "@/types/entities/recruitment";
-import { toKSTISOString } from "@/utils/validation/formatDate";
 
 export type RecruitmentRoundInfoModalPropsType = {
   open: boolean;
@@ -87,11 +87,9 @@ export default function RecruitmentRoundInfoModal({
       return;
     }
 
-    const adjustedDate = name === "endDate" ? newDate.endOf("day") : newDate;
-
     setRoundModalInfo(prevModalInfo => ({
       ...prevModalInfo,
-      [name]: adjustedDate,
+      [name]: newDate,
     }));
   };
 
@@ -108,7 +106,7 @@ export default function RecruitmentRoundInfoModal({
       semesterType: semester === "1" ? "FIRST" : "SECOND",
       name,
       startDate: toKSTISOString(startDate!.toDate()),
-      endDate: toKSTISOString(endDate!.toDate()),
+      endDate: toKSTISOString(endDate!.endOf("day").toDate()),
       roundType: roundType === "1차" ? "FIRST" : roundType === "2차" ? "SECOND" : "THIRD",
     };
 

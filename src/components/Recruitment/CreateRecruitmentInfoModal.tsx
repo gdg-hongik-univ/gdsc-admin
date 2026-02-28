@@ -1,17 +1,17 @@
-import { ChangeEvent, useState } from "react";
-import styled from "@emotion/styled";
-import { Modal, Typography, Box, Button, TextField } from "@mui/material";
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import { DatePicker } from "@mui/x-date-pickers/DatePicker";
-import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider/LocalizationProvider";
-import { useQueryClient } from "@tanstack/react-query";
-import { Dayjs } from "dayjs";
-import { toast } from "react-toastify";
 import WarningIcon from "@/assets/warning.svg?react";
 import { QueryKey } from "@/constants/queryKey";
 import useCreateRecruitmentMutation from "@/hooks/mutations/useCreateRecruitmentMutation";
 import { RecruitmentModalInfoType } from "@/types/entities/recruitment";
 import { toKSTISOString } from "@/utils/validation/formatDate";
+import styled from "@emotion/styled";
+import { Box, Button, Modal, TextField, Typography } from "@mui/material";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider/LocalizationProvider";
+import { useQueryClient } from "@tanstack/react-query";
+import { Dayjs } from "dayjs";
+import { ChangeEvent, useState } from "react";
+import { toast } from "react-toastify";
 
 type CreateRecruitmentInfoModalPropsType = {
   open: boolean;
@@ -72,7 +72,7 @@ export default function CreateRecruitmentInfoModal({
     mutate(
       {
         semesterStartDate: toKSTISOString(semesterStartDate.toDate()),
-        semesterEndDate: toKSTISOString(semesterEndDate.toDate()),
+        semesterEndDate: toKSTISOString(semesterEndDate.endOf("day").toDate()),
         academicYear,
         semesterType: semester === "1" ? "FIRST" : "SECOND",
         fee,
