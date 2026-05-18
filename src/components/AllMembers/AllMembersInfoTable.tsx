@@ -4,6 +4,7 @@ import { Button, Stack } from "@mui/material";
 import { DataGrid, GridCellParams, GridColDef, GridRowModel } from "@mui/x-data-grid";
 import { useQueryClient } from "@tanstack/react-query";
 import { toast } from "react-toastify";
+import DeleteMemberModal from "./DeleteMemberModal";
 import EditInfoMemberModal from "./EditMemberInfoModal";
 
 import { QueryKey } from "@/constants/queryKey";
@@ -14,7 +15,6 @@ import {
 import useDeleteMemberMutation from "@/hooks/mutations/useDeleteMemberMutation";
 import useGetAllMemberListQuery from "@/hooks/queries/useGetAllMemberListQuery";
 import { EditMemberInfoType, MemberInfoType } from "@/types/entities/member";
-
 const initialMemberInfo = {
   memberId: 0,
   studentId: "",
@@ -32,6 +32,9 @@ const initialMemberInfo = {
 export default function AllMembersInfoTable() {
   const [editModalOpen, setEditModalOpen] = useState(false);
   const [editMemberId, setEditMemberId] = useState(0);
+
+  const [deleteModalOpen, setDeleteModalOpen] = useState(false);
+  const [deleteTargetRow, setDeleteTargetRow] = useState<GridRowModel | null>(null);
 
   const { mutate } = useDeleteMemberMutation();
 
@@ -98,16 +101,42 @@ export default function AllMembersInfoTable() {
     setEditModalOpen(true);
   };
 
+  // const handleClickDeleteMember = (row: GridRowModel) => {
+  //   const targetMemberId = row.id;
+  //   mutate(targetMemberId, {
+  //     onSuccess: () => {
+  //       queryClient.invalidateQueries({
+  //         queryKey: [QueryKey.allMemberList],
+  //       });
+  //       toast.success("탈퇴 처리 완료하였습니다.");
+  //     },
+  //   });
+  // };
   const handleClickDeleteMember = (row: GridRowModel) => {
-    const targetMemberId = row.id;
-    mutate(targetMemberId, {
+    setDeleteTargetRow(row);
+    setDeleteModalOpen(true);
+  };
+
+  const handleConfirmDeleteMember = () => {
+    if (!deleteTargetRow) {
+      return;
+    }
+
+    mutate(deleteTargetRow.id, {
       onSuccess: () => {
         queryClient.invalidateQueries({
           queryKey: [QueryKey.allMemberList],
         });
         toast.success("탈퇴 처리 완료하였습니다.");
+        setDeleteModalOpen(false);
+        setDeleteTargetRow(null);
       },
     });
+  };
+
+  const handleCloseDeleteModal = () => {
+    setDeleteModalOpen(false);
+    setDeleteTargetRow(null);
   };
 
   const handleCloseModal = () => {
@@ -136,6 +165,12 @@ export default function AllMembersInfoTable() {
         onClose={handleCloseModal}
         memberInfo={editMemberInfo}
         key={editMemberId}
+      />
+      <DeleteMemberModal
+        open={deleteModalOpen}
+        memberName={deleteTargetRow?.name}
+        onClose={handleCloseDeleteModal}
+        onConfirm={handleConfirmDeleteMember}
       />
     </>
   );
