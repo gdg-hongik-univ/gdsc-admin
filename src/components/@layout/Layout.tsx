@@ -1,11 +1,28 @@
+import { useEffect } from "react";
 import { Button, Stack, styled } from "@mui/material";
-import { Navigate, Outlet } from "react-router-dom";
+import ReactGA from "react-ga4";
+import { Navigate, Outlet, useLocation } from "react-router-dom";
 import SideNavbar from "@/components/@common/SideNavbar";
 import useLogoutMutation from "@/hooks/mutations/useLogoutMutation";
 import RoutePath from "@/routes/routePath";
 
 export default function Layout() {
   const { mutate } = useLogoutMutation();
+  const location = useLocation();
+
+  const GA_MEASUREMENT_ID = import.meta.env.VITE_GA_ID;
+  if (GA_MEASUREMENT_ID) {
+    ReactGA.initialize(GA_MEASUREMENT_ID, {
+      gtagOptions: { send_page_view: false },
+    });
+  }
+
+  useEffect(() => {
+    ReactGA.send({
+      hitType: "pageview",
+      page: location.pathname + location.search,
+    });
+  }, [location.pathname, location.search]);
 
   if (!sessionStorage.getItem("isLogin")) {
     return <Navigate to={RoutePath.Signin} />;
@@ -14,7 +31,6 @@ export default function Layout() {
   const handleClickLogout = () => {
     mutate();
   };
-
   return (
     <StyledLayoutWrapper>
       <SideNavbar />
