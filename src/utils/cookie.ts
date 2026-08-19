@@ -35,7 +35,7 @@ export function setCookie({
   const processedValue = encoding ? encodeURIComponent(value) : value;
 
   const isBaseUriCookie = key === "oauth-base-uri";
-  const domain = window.location.origin.includes("localhost") ? "localhost" : ".gdschongik.com";
+  const domain = window.location.origin.includes("localhost") ? "localhost" : "gdghongik.com";
   const baseUriCookieValue = "; samesite=none; secure; domain=" + domain;
 
   const cookieValue =
